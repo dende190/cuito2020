@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mi culiot 2020-2</title>
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+	<style type="text/css">
+		h1 {
+			font-family: 'Amatic SC', cursive;
+			font-size: 2em;
+		}
+		p, button{
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-size: 1.3em;
+		}
+		h2 {
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+		body {
+			background-color: #d2d2ff;
+		}
+		.flexContent {
+			display: flex;
+		    flex-direction: column;
+		    align-items: center;
+		}
+		section {
+		    margin-top: 100px;
+		}
+		.container {
+			background: #d6d0d096;
+			padding: 45px 115px;
+		}
+		#containerButtons {
+			width: 69%;
+			margin-top: 30px;
+			display: flex;
+			justify-content: space-between;
+		}
+		button {
+			cursor: pointer;
+			width: 45%;
+		    border-radius: 15px;
+		    background-color: #f1f1f1;
+		}
+		button:hover {
+		    background-color: #a2a2a2;
+		}
+		#buttonYes {
+			display: flex;
+    		justify-content: center;
+		}
+		#buttonYes:hover #heart {
+		    animation-name: heart;
+  			animation-duration: 1s;
+  			animation-iteration-count: infinite;
+  			margin: 0 0 0 15px;
+		}
+		#heart {
+  			margin: 0 0 0 15px;
+		}
+		.hidden {
+			display: none;
+		}
+		#modal {
+			position: absolute;
+		    z-index: 999;
+		    background-color: white;
+		    width: 50%;
+		    top: 250px;
+		    padding: 29px;
+		}
+
+		@keyframes heart {
+		  	0% {
+		  		transform: scale(1);
+		  	}
+		  	50% {
+		  		transform: scale(1.5);
+		  	}
+		  	100% {
+		  		transform: scale(1);
+		  	}
+		}
+
+	</style>
+</head>
+<body>
+	<section class="flexContent">
+		<div class="container flexContent">
+			<div>
+				<h1>Quieres ser mi culito 2020-2</h1>
+			</div>
+			<div class="flexContent">
+				<p>Tu sabes que quieres quien no quisiera ser el culito de este bombon</p>
+				<img src="./yo.png" alt="carita de jp">
+			</div>
+			<div id="containerMessage" class="hidden">
+				<h1>Calmalaaaaa !</h1>
+				<h2 id="message"></h2>
+			</div>
+			<div id="containerButtons">
+				<button id="buttonYes">SI <p id="heart">❤️</p></button>
+				<button id="buttonNot">NO 🥺💔</button>
+			</div>
+			<div id="modal" class="hidden">
+				<h1>Esta bien solo porque me rogaste te dare la posiblidad de ser mi culito 2020-2</h1>
+			</div>
+		</div>
+	</section>
+	<script>
+		var arrayMessages = [
+			'Soy lindo',
+			'Te hare reir',
+			'Se bailar',
+			'Te doy como cura a monagillo',
+			'Cocino',
+			'Barro',
+			'Te doy mucho amor',
+			'Hago caso',
+			'No salgo sin ti',
+			'Trabajo',
+		];
+		document.getElementById('buttonNot').addEventListener('mouseover', changeButton);
+		document.getElementById('buttonYes').addEventListener('click', function() {
+			document.getElementById('modal').classList.remove('hidden');
+		});
+
+		function changeButton() {
+			var buttonNot = document.getElementById('buttonNot');
+			var buttonYes = document.getElementById('buttonYes');
+			var random = Math.round(Math.random() * (arrayMessages.length - 1) + 0);
+			document.getElementById('containerMessage').classList.remove('hidden');
+			document.getElementById('message').innerHTML = arrayMessages[random];
+			
+			var containerButtons = document.getElementById('containerButtons');
+			containerButtons.appendChild(containerButtons.firstElementChild);
+		}
+	</script>
+</body>
+</html>
