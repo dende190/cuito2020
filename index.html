@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Mi culiot 2020-2</title>
+	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
 	<style type="text/css">
 		h1 {
@@ -120,10 +121,18 @@
 			'No salgo sin ti',
 			'Trabajo',
 		];
-		document.getElementById('buttonNot').addEventListener('mouseover', changeButton);
-		document.getElementById('buttonYes').addEventListener('click', function() {
-			document.getElementById('modal').classList.remove('hidden');
-		});
+		if (screen.width > 1050) {
+			console.log('test');
+			document.getElementById('buttonNot').addEventListener('mouseover', changeButton);
+			document.getElementById('buttonYes').addEventListener('click', function() {
+				document.getElementById('modal').classList.remove('hidden');
+			});
+		} else {
+			document.getElementById('buttonNot').addEventListener('click', changeButton);
+			document.getElementById('buttonYes').addEventListener('click', function() {
+				document.getElementById('modal').classList.remove('hidden');
+			});
+		}
 
 		function changeButton() {
 			var buttonNot = document.getElementById('buttonNot');
